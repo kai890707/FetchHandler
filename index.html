@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+</head>
+
+<body>
+    <script type="module">
+        //only import this file.
+        import { GET, POST, PUT, DELETE } from "./src/fetchHandler.js";
+
+        //GET method
+        GET("/posts")
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        //POST method
+        POST("/posts")
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        //PUT method
+        PUT("posts/1", {
+            body: JSON.stringify({
+                id: 1,
+                title: "foo",
+                body: "bar",
+                userId: 1,
+            }),
+        })
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        //DELETE method
+        DELETE("posts/1", {})
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    </script>
+</body>
+
+</html>
